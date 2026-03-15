@@ -4,13 +4,15 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown, Globe } from "lucide-react"
 import Link from "next/link"
+import { waBuy, waContact } from "@/lib/whatsapp"
 
 const navLinks = [
   { label: "דף הבית", href: "/" },
   { label: "רשימת ערוצים", href: "/channels-list" },
+  { label: "בלוג", href: "/blog" },
   { label: "חבילות", href: "/#pricing" },
   { label: "תוכנית שותפים", href: "/#reseller" },
-  { label: "צור קשר", href: "https://wa.me/212707711512" },
+  { label: "צור קשר", href: waContact },
 ]
 
 const languages = [
@@ -94,7 +96,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <Link
-              href="https://wa.me/212707711512"
+              href={waBuy()}
               target="_blank"
               rel="noopener noreferrer"
               className="neon-glow rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110"

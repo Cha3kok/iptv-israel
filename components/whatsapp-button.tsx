@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { MessageCircle } from "lucide-react"
 import Link from "next/link"
+import { waContact } from "@/lib/whatsapp"
 
 export default function WhatsAppButton() {
   return (
@@ -13,7 +14,7 @@ export default function WhatsAppButton() {
       className="fixed bottom-6 left-6 z-50"
     >
       <Link
-        href="https://wa.me/212707711512"
+        href={waContact}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact us on WhatsApp"

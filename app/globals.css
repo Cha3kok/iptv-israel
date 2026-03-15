@@ -140,6 +140,209 @@
   animation: counter-glow 2s ease-in-out infinite;
 }
 
+/* ═══════════════════════════════════════════════
+   WordPress article content — editorial styles
+   ═══════════════════════════════════════════════ */
+
+.wp-content {
+  direction: ltr;
+  text-align: left;
+  color: #cbd5e1;
+  line-height: 1.9;
+  font-size: 1.0625rem;
+}
+
+/* ── Hide injected WP promo elements ── */
+.wp-content a.custom-button,
+.wp-content h4:has(a.custom-button),
+.wp-content strong:has(a.custom-button) {
+  display: none !important;
+}
+
+/* ── Headings ── */
+.wp-content h1,
+.wp-content h2,
+.wp-content h3,
+.wp-content h4,
+.wp-content h5 {
+  color: #F8FAFC;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: left;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* h1 inside content (WP sometimes injects one) — hide, we already show it in the hero */
+.wp-content > h1:first-child { display: none; }
+
+.wp-content h2 {
+  font-size: 1.625rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1E293B;
+  margin-top: 3.5rem;
+}
+
+.wp-content h3 {
+  font-size: 1.25rem;
+  color: #10B981;
+  margin-top: 2.5rem;
+}
+
+.wp-content h4 {
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+/* ── Body text ── */
+.wp-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* ── Links ── */
+.wp-content a {
+  color: #10B981;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+.wp-content a:hover { color: #34d399; }
+
+/* ── Inline ── */
+.wp-content strong { color: #F8FAFC; font-weight: 700; }
+.wp-content em     { color: #e2e8f0; font-style: italic; }
+.wp-content code   {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: #151B23;
+  color: #10B981;
+  padding: 0.15em 0.4em;
+  border-radius: 0.3rem;
+  border: 1px solid #1E293B;
+}
+
+/* ── Lists ── */
+.wp-content ul,
+.wp-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.75rem;
+}
+.wp-content ul { list-style-type: disc; }
+.wp-content ol { list-style-type: decimal; }
+.wp-content li  { margin-bottom: 0.5rem; }
+
+/* ── Blockquote ── */
+.wp-content blockquote {
+  position: relative;
+  border-left: 4px solid #10B981;
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.5rem;
+  background: rgba(16, 185, 129, 0.04);
+  border-radius: 0 0.75rem 0.75rem 0;
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+.wp-content blockquote p { margin-bottom: 0; }
+
+/* ── Horizontal rule ── */
+.wp-content hr {
+  border: none;
+  border-top: 1px solid #1E293B;
+  margin: 3rem 0;
+}
+
+/* ── Table ── */
+.wp-content .table-wrapper,
+.wp-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.wp-content th {
+  background: #151B23;
+  color: #F8FAFC;
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border: 1px solid #1E293B;
+  white-space: nowrap;
+}
+.wp-content td {
+  padding: 0.7rem 1rem;
+  border: 1px solid #1E293B;
+  color: #94A3B8;
+  vertical-align: top;
+}
+.wp-content tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+/* ── Images ── */
+.wp-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.875rem;
+  margin: 2.5rem auto;
+  display: block;
+  border: 1px solid #1E293B;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ── Section ── */
+.wp-content section { display: block; margin-bottom: 1.5rem; }
+
+/* ── Table of contents nav ── */
+.wp-content nav {
+  direction: ltr;
+  background: #0f1923;
+  border: 1px solid #1E293B;
+  border-left: 4px solid #10B981;
+  border-radius: 0 0.875rem 0.875rem 0;
+  padding: 1.5rem 1.75rem;
+  margin: 2.5rem 0;
+}
+.wp-content nav h2 {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #10B981;
+  margin: 0 0 1rem;
+  border: none;
+  padding: 0;
+}
+.wp-content nav ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: toc;
+}
+.wp-content nav ul li {
+  counter-increment: toc;
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
+  color: #94A3B8;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  transition: color 0.15s;
+}
+.wp-content nav ul li:hover { color: #F8FAFC; }
+.wp-content nav ul li::before {
+  content: counter(toc, decimal-leading-zero);
+  color: #10B981;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;

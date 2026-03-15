@@ -1,10 +1,11 @@
 import Link from "next/link"
+import { waTrial, waContact } from "@/lib/whatsapp"
 
 export default function Footer() {
   return (
     <footer className="border-t border-border/30 px-4 py-12">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div>
             <span className="text-xl font-bold tracking-tight">
@@ -28,8 +29,8 @@ export default function Footer() {
                 { label: "דף הבית", href: "#home" },
                 { label: "מחירון חבילות IPTV", href: "#pricing" },
                 { label: "תוכנית שותפים", href: "#reseller" },
-                { label: "צור קשר", href: "https://wa.me/212707711512" },
-                { label: "ניסיון IPTV חינם", href: "https://wa.me/212707711512?text=I%20want%20a%2024h%20free%20IPTV%20trial" },
+                { label: "צור קשר", href: waContact },
+                { label: "ניסיון IPTV חינם", href: waTrial() },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
@@ -66,6 +67,29 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Legal */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold text-foreground">
+              משפטי
+            </h4>
+            <ul className="flex flex-col gap-2.5">
+              {[
+                { label: 'תנאים והגבלות', href: '/terms' },
+                { label: 'מדיניות ביטול והחזר', href: '/refund-policy' },
+                { label: 'מדיניות פרטיות', href: '/privacy-policy' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
             <h4 className="mb-4 text-sm font-semibold text-foreground">
@@ -74,7 +98,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5">
               <li>
                 <Link
-                  href="https://wa.me/212707711512"
+                  href={waContact}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground transition-colors hover:text-primary"

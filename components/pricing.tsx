@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Check, Star, Crown, Shield, MonitorPlay, Zap, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { usePlans, useSiteSettings } from "@/hooks/use-db"
+import { waBuyPlan } from "@/lib/whatsapp"
 import { ComponentType } from "react"
 
 const iconMap: Record<string, ComponentType<any>> = {
@@ -16,7 +17,7 @@ const iconMap: Record<string, ComponentType<any>> = {
 
 export default function Pricing() {
   const { plans, loading: loadingPlans } = usePlans()
-  const { settings, loading: loadingSettings } = useSiteSettings()
+  const { loading: loadingSettings } = useSiteSettings()
 
   return (
     <section id="pricing" className="relative px-4 py-20">
@@ -110,7 +111,7 @@ export default function Pricing() {
                   </ul>
 
                   <Link
-                    href={`${settings?.supportWhatsAppUrl || 'https://wa.me/212707711512'}?text=שלום%20IPTV%20ישראל,%20אני%20מעוניין%20במנוי%20${encodeURIComponent(plan.name)}.`}
+                    href={waBuyPlan(plan.name, plan.price)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`mt-auto rounded-xl py-3 text-center text-sm font-semibold transition-all ${plan.popular
