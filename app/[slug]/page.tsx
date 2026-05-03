@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllPosts, getPostBySlug, stripHtml, readingTime } from '@/lib/wordpress'
+import { getAllPosts, getPostBySlug, stripHtml, readingTime } from '@/lib/posts'
 import { format } from 'date-fns'
 import { Clock, ArrowLeft, CalendarDays, User } from 'lucide-react'
 import { waTrial } from '@/lib/whatsapp'
@@ -13,10 +13,10 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
-export const revalidate = 3600
+export const revalidate = false
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts(100)
+  const posts = await getAllPosts()
   return posts.map((p) => ({ slug: p.slug }))
 }
 
@@ -27,17 +27,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${post.title} | IPTV ישראל`,
-    description: stripHtml(post.excerpt).slice(0, 160),
+    description: post.excerpt.slice(0, 160),
     alternates: { canonical: `https://iptv.co.il/${slug}` },
     openGraph: {
       title: post.title,
-      description: stripHtml(post.excerpt).slice(0, 160),
+      description: post.excerpt.slice(0, 160),
       type: 'article',
       publishedTime: post.date,
       locale: 'he_IL',
-      images: post.featuredImage?.node.sourceUrl
-        ? [{ url: post.featuredImage.node.sourceUrl }]
-        : [],
+      images: post.coverImage ? [{ url: post.coverImage }] : [],
     },
   }
 }
@@ -48,7 +46,6 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   const minutes = readingTime(post.content)
-  const category = post.categories.nodes[0]
 
   return (
     <div className="min-h-screen bg-[#0B0F13] text-[#F8FAFC]">
@@ -56,26 +53,24 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* ── Hero ── */}
       <div className="relative w-full pt-16">
-        {post.featuredImage?.node.sourceUrl ? (
+        {post.coverImage ? (
           <>
             <div className="relative h-[55vh] min-h-[380px] w-full overflow-hidden">
               <Image
-                src={post.featuredImage.node.sourceUrl}
-                alt={post.featuredImage.node.altText || post.title}
+                src={post.coverImage}
+                alt={post.coverAlt || post.title}
                 fill
                 className="object-cover"
                 priority
               />
-              {/* gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F13] via-[#0B0F13]/60 to-transparent" />
             </div>
 
-            {/* Title sits over the gradient */}
             <div className="absolute bottom-0 left-0 right-0">
               <div className="mx-auto max-w-3xl px-4 pb-10 sm:px-6">
-                {category && (
+                {post.category && (
                   <span className="mb-4 inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400">
-                    {category.name}
+                    {post.category}
                   </span>
                 )}
                 <h1 className="text-3xl font-black leading-tight text-white md:text-5xl">
@@ -85,11 +80,10 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </>
         ) : (
-          /* No image — plain header */
           <div className="mx-auto max-w-3xl px-4 pb-10 pt-16 sm:px-6">
-            {category && (
+            {post.category && (
               <span className="mb-4 inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400">
-                {category.name}
+                {post.category}
               </span>
             )}
             <h1 className="text-3xl font-black leading-tight text-white md:text-5xl">
@@ -104,12 +98,12 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Meta bar */}
         <div className="mb-8 mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[#1E293B] pb-6 text-sm text-[#94A3B8]">
-          {post.author?.node.name && (
+          {post.author && (
             <span className="flex items-center gap-1.5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#10B981]/10 text-[#10B981]">
                 <User className="h-3.5 w-3.5" />
               </span>
-              {post.author.node.name.includes('@') ? 'Admin' : post.author.node.name}
+              {post.author}
             </span>
           )}
           <span className="flex items-center gap-1.5">
@@ -123,9 +117,11 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* Excerpt / lead */}
-        <p className="mb-10 text-xl font-light leading-relaxed text-[#cbd5e1]">
-          {stripHtml(post.excerpt)}
-        </p>
+        {post.excerpt && (
+          <p className="mb-10 text-xl font-light leading-relaxed text-[#cbd5e1]">
+            {post.excerpt}
+          </p>
+        )}
 
         {/* Content */}
         <div
@@ -164,7 +160,7 @@ export default async function BlogPostPage({ params }: Props) {
             className="inline-flex items-center gap-2 text-sm font-medium text-[#94A3B8] transition-colors hover:text-[#10B981]"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Blog
+            חזרה לבלוג
           </Link>
         </div>
       </main>

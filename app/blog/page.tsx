@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllPosts, stripHtml, readingTime } from '@/lib/wordpress'
+import { getAllPosts, stripHtml, readingTime } from '@/lib/posts'
 import { format } from 'date-fns'
 import { he } from 'date-fns/locale'
 import Navbar from '@/components/navbar'
@@ -14,14 +14,10 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://iptv.co.il/blog' },
 }
 
-// Revalidate every hour (ISR)
-export const revalidate = 3600
+export const revalidate = false
 
 export default async function BlogPage() {
-  const posts = await getAllPosts(100)
-  const sorted = [...posts].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  )
+  const sorted = await getAllPosts()
 
   if (sorted.length === 0) {
     return (
@@ -60,12 +56,11 @@ export default async function BlogPage() {
           href={`/${featured.slug}`}
           className="glass group mb-10 grid overflow-hidden rounded-2xl transition-all hover:border-[#10B981]/30 md:grid-cols-2"
         >
-          {/* Image */}
-          {featured.featuredImage?.node.sourceUrl && (
+          {featured.coverImage && (
             <div className="relative h-56 w-full overflow-hidden md:h-full">
               <Image
-                src={featured.featuredImage.node.sourceUrl}
-                alt={featured.featuredImage.node.altText || featured.title}
+                src={featured.coverImage}
+                alt={featured.coverAlt || featured.title}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -73,12 +68,11 @@ export default async function BlogPage() {
             </div>
           )}
 
-          {/* Content */}
           <div className="flex flex-col justify-center p-8">
             <div className="mb-4 flex flex-wrap items-center gap-3">
-              {featured.categories.nodes[0] && (
+              {featured.category && (
                 <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-0.5 text-xs font-semibold text-emerald-400">
-                  {featured.categories.nodes[0].name}
+                  {featured.category}
                 </span>
               )}
               <span className="text-xs text-[#94A3B8]">
@@ -112,12 +106,11 @@ export default async function BlogPage() {
                 href={`/${post.slug}`}
                 className="glass group flex flex-col overflow-hidden rounded-2xl transition-all hover:border-[#10B981]/30"
               >
-                {/* Thumbnail */}
-                {post.featuredImage?.node.sourceUrl && (
+                {post.coverImage && (
                   <div className="relative h-44 w-full overflow-hidden">
                     <Image
-                      src={post.featuredImage.node.sourceUrl}
-                      alt={post.featuredImage.node.altText || post.title}
+                      src={post.coverImage}
+                      alt={post.coverAlt || post.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
@@ -126,9 +119,9 @@ export default async function BlogPage() {
                 )}
 
                 <div className="flex flex-1 flex-col p-6">
-                  {post.categories.nodes[0] && (
+                  {post.category && (
                     <span className="mb-3 inline-block w-fit rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-400">
-                      {post.categories.nodes[0].name}
+                      {post.category}
                     </span>
                   )}
 
