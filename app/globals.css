@@ -289,11 +289,51 @@
   max-width: 100%;
   height: auto;
   border-radius: 0.875rem;
-  margin: 2.5rem auto;
+  margin: 2.5rem auto 0;
   display: block;
   border: 1px solid #1E293B;
   box-shadow: 0 4px 24px rgba(0,0,0,0.4);
 }
+
+/* ── 3 CTA buttons injected after each article image ── */
+.wp-img-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin: 1rem 0 2.5rem;
+}
+
+.wp-img-cta-btn {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border-radius: 0.625rem;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-decoration: none !important;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.wp-img-cta-trial {
+  background: #10B981;
+  color: #0B0F13 !important;
+}
+.wp-img-cta-trial:hover { filter: brightness(1.1); color: #0B0F13 !important; }
+
+.wp-img-cta-buy {
+  border: 1.5px solid #10B981;
+  color: #10B981 !important;
+  background: transparent;
+}
+.wp-img-cta-buy:hover { background: rgba(16,185,129,0.12); }
+
+.wp-img-cta-contact {
+  border: 1.5px solid #334155;
+  color: #94A3B8 !important;
+  background: transparent;
+}
+.wp-img-cta-contact:hover { border-color: #10B981; color: #10B981 !important; }
 
 /* ── Section ── */
 .wp-content section { display: block; margin-bottom: 1.5rem; }

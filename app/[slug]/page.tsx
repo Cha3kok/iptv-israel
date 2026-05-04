@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { getAllPosts, getPostBySlug, stripHtml, readingTime } from '@/lib/posts'
 import { format } from 'date-fns'
 import { Clock, ArrowLeft, CalendarDays, User } from 'lucide-react'
-import { waTrial, waBuy } from '@/lib/whatsapp'
+import { waTrial, waBuy, waContact } from '@/lib/whatsapp'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 
@@ -51,6 +51,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+/** Inject 3 CTA buttons after every <img> in article content */
+function injectCtaAfterImages(html: string, trialUrl: string, buyUrl: string, contactUrl: string): string {
+  const cta = `<div class="wp-img-cta">` +
+    `<a href="${trialUrl}" target="_blank" rel="noopener noreferrer" class="wp-img-cta-btn wp-img-cta-trial">ניסיון חינם 3 שעות ←</a>` +
+    `<a href="${buyUrl}" target="_blank" rel="noopener noreferrer" class="wp-img-cta-btn wp-img-cta-buy">רכוש מנוי עכשיו</a>` +
+    `<a href="${contactUrl}" target="_blank" rel="noopener noreferrer" class="wp-img-cta-btn wp-img-cta-contact">שאל אותנו ב-WhatsApp</a>` +
+    `</div>`
+  // Images rendered as <p><img ...></p> by the markdown parser
+  return html.replace(/<p>(<img[^>]*>)<\/p>/g, `<p>$1</p>${cta}`)
+}
+
 /** Split HTML at the midpoint <hr> so we can inject a mid-article CTA */
 function splitAtMidHr(html: string): [string, string] {
   const parts = html.split('<hr>')
@@ -68,7 +79,8 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   const minutes = readingTime(post.content)
-  const [firstHalf, secondHalf] = splitAtMidHr(post.content)
+  const contentWithCta = injectCtaAfterImages(post.content, waTrial(), waBuy(), waContact)
+  const [firstHalf, secondHalf] = splitAtMidHr(contentWithCta)
 
   const jsonLd = {
     '@context': 'https://schema.org',
