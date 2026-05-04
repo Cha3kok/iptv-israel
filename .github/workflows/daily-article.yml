@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Anthropic SDK
+      - name: Install dependencies
         run: npm install @anthropic-ai/sdk
 
       - name: Generate and save article
@@ -46,7 +46,12 @@ jobs:
           echo "Waiting 3 minutes for Vercel to deploy..."
           sleep 180
 
-      - name: Submit to IndexNow (Google + Bing + Yandex)
+      - name: Submit to IndexNow (Bing + Yandex)
         run: |
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://iptv.co.il/api/indexnow)
           echo "IndexNow response: $STATUS"
+
+      - name: Submit to Google Indexing API
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://iptv.co.il/api/google-index)
+          echo "Google Indexing API response: $STATUS"
