@@ -1,0 +1,52 @@
+name: 📰 Daily Article Publisher
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # 7:00 UTC = 9:00 Israel time (GMT+2)
+  workflow_dispatch:        # Allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  publish-article:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Anthropic SDK
+        run: npm install @anthropic-ai/sdk
+
+      - name: Generate and save article
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-article.mjs
+
+      - name: Commit and push new article
+        run: |
+          git config user.name "IPTV Israel Bot"
+          git config user.email "bot@iptv.co.il"
+          git add content/posts/ content/keywords.json public/images/posts/
+          git diff --staged --quiet && echo "Nothing to commit" && exit 0
+          git commit -m "feat: auto-publish article $(date +%Y-%m-%d)"
+          git push
+
+      - name: Wait for Vercel deployment
+        run: |
+          echo "Waiting 3 minutes for Vercel to deploy..."
+          sleep 180
+
+      - name: Submit to IndexNow (Google + Bing + Yandex)
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://iptv.co.il/api/indexnow)
+          echo "IndexNow response: $STATUS"
