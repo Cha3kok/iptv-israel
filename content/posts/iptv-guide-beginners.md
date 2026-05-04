@@ -1,13 +1,12 @@
 ---
-title: "مدريך IPTV למתחילים 2026 – הגדרה, בחירת נגן, וטרובלשוטינג"
+title: "מדריך IPTV למתחילים 2026 – הגדרה, בחירת נגן, וטרובלשוטינג"
 slug: "iptv-guide-beginners"
 excerpt: "מדריך IPTV למתחילים מ-0 ל-100. איך בוחרים נגן, מתקינים על כל מכשיר, וצופים בערוצים. כל מה שצריך לדעת כדי להתחיל עכשיו."
 date: "2026-05-03"
 category: "מדריכים"
 author: "צוות IPTV ישראל"
-coverImage: "/images/posts/iptv-guide-beginners.jpg"
+coverImage: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&h=630&fit=crop&auto=format"
 coverAlt: "מדריך IPTV למתחילים - הגדרה קלה על כל מכשיר, סמארטפון, טלוויזיה חכמה, וטאבלט"
-imagePrompt: "Step-by-step IPTV setup guide visual tutorial, person holding smartphone and remote control, multiple devices (TV, tablet, laptop) displaying IPTV channels interface, Hebrew text labels showing setup steps, modern tech environment, bright lighting, instructional style, 16:9 --ar 16:9 --v 6"
 ---
 
 ## מדריך IPTV למתחילים – כל מה שצריך לדעת (וכל מה שלא!)
@@ -20,6 +19,8 @@ imagePrompt: "Step-by-step IPTV setup guide visual tutorial, person holding smar
 - ✅ תתחברו לשרת
 - ✅ תצפו בערוצים!
 
+![מדריך IPTV – התקנה קלה על טלוויזיה חכמה, סמארטפון וטאבלט](https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1200&h=500&fit=crop&auto=format)
+
 ---
 
 ## שלב 1 – בחירת נגן IPTV (האפליקציה)
@@ -28,8 +29,8 @@ imagePrompt: "Step-by-step IPTV setup guide visual tutorial, person holding smar
 
 ### איזה נגן לבחור לפי מכשיר?
 
-#### 📺 **טלוויזיה חכמה (Samsung, LG)**
-- **המומלץ:** TiviMate או Smart IPTV
+#### **טלוויזיה חכמה (Samsung, LG)**
+- **המומלץ:** [TiviMate](https://tivimate.net) או [Smart IPTV](https://siptv.app/)
 - **מדוע:** ממשק פשוט, EPG בעברית, תמיכה מלאה
 
 **הגדרה:**
@@ -37,26 +38,26 @@ imagePrompt: "Step-by-step IPTV setup guide visual tutorial, person holding smar
 2. חפשו "TiviMate"
 3. הורידו והתקינו
 
-#### 📱 **סמארטפון אנדרואיד**
-- **המומלץ:** TiviMate, IPTV Smarters Pro
+#### **סמארטפון אנדרואיד**
+- **המומלץ:** [TiviMate](https://tivimate.net), [IPTV Smarters Pro](https://www.iptvsmarters.com/)
 - **למה:** תמיכה בהסתרת כיתוביות, EPG, מדריך שידורים
 
-#### 🍎 **iPhone / iPad**
-- **המומלץ:** GSE Smart IPTV, IPTV Smarters
-- **הערה:** App Store עשוי למחוק אפליקציות IPTV – השתמשו בטסטפלייט
+#### **iPhone / iPad**
+- **המומלץ:** [GSE Smart IPTV](https://www.gsesmart.com/), IPTV Smarters
+- **הערה:** App Store עשוי למחוק אפליקציות IPTV – השתמשו בגרסה ישירה
 
-#### 🔥 **Amazon Firestick**
-- **המומלץ:** TiviMate
+#### **Amazon Firestick**
+- **המומלץ:** [TiviMate](https://tivimate.net)
 - **הוראות:**
   1. על Firestick → Settings → Security & Privacy → Unknown Sources → On
   2. תקינו Downloader מ-Amazon App Store
   3. בחפשו בו "TiviMate" והתקינו
 
-#### 💻 **מחשב (Windows/Mac)**
-- **המומלץ:** VLC Media Player או IPTV Smarters Desktop
+#### **מחשב (Windows/Mac)**
+- **המומלץ:** [VLC Media Player](https://www.videolan.org/vlc/) או [IPTV Smarters Desktop](https://www.iptvsmarters.com/)
 - **פשוט:** פתחו וחברו ל-M3U Playlist
 
-#### 📦 **MAG Box / STB**
+#### **MAG Box / STB**
 - **מובנה:** נגן מובנה בתיבה
 - **כל מה שצריך:** גישה ישירה לערוצים
 
@@ -86,14 +87,15 @@ imagePrompt: "Step-by-step IPTV setup guide visual tutorial, person holding smar
 
 ### על טלוויזיה חכמה:
 
-**1. פתחו את TiviMate**
-**2. לחצו על ⚙️ (Settings)**
-**3. בחרו Xtream Codes**
+**1. פתחו את TiviMate**  
+**2. לחצו על ⚙️ (Settings)**  
+**3. בחרו Xtream Codes**  
 **4. הכניסו את הפרטים:**
-   - **Server URL:** (אתה תקבל מנו)
+   - **Server URL:** (תקבלו מאיתנו)
    - **Username:** (פרטים שקיבלת)
    - **Password:** (פרטים שקיבלת)
-**5. לחצו OK וחכו 10 שניות**
+
+**5. לחצו OK וחכו 10 שניות**  
 **6. בוצע!** הערוצים יופיעו מייד
 
 ### על סמארטפון אנדרואיד:
@@ -104,33 +106,35 @@ imagePrompt: "Step-by-step IPTV setup guide visual tutorial, person holding smar
 4. הכניסו את פרטי ההתחברות
 5. צפו!
 
+![הגדרת נגן TiviMate – מסך Xtream Codes על טלוויזיה חכמה](https://images.unsplash.com/photo-1461151304267-38535e780c79?w=1200&h=500&fit=crop&auto=format)
+
 ---
 
 ## שלב 4 – הערוצים לא מופיעים? טרובלשוטינג
 
-### ❌ **"שגיאה בחיבור"**
-✅ **פתרון:**
+### **"שגיאה בחיבור"**
+**פתרון:**
 - בדקו שהאינטרנט פועל
-- בדקו שגם ה-TV וגם הנוכל מחוברים לאינטרנט
+- בדקו שגם ה-TV וגם הנגן מחוברים לאינטרנט
 - נסו להתחבר מחדש ל-WiFi
 
-### ❌ **"ערוצים לא מופיעים"**
-✅ **פתרון:**
+### **"ערוצים לא מופיעים"**
+**פתרון:**
 - בדקו שהשם משתמש וסיסמה נכונים
 - מחקו את האפליקציה והתקינו מחדש
 - צרו קשר עם הצוות שלנו דרך WhatsApp
 
-### ❌ **"השידור קופא / מתקיע"**
-✅ **פתרון:**
-- בדקו מהירות אינטרנט (לפחות 10 Mbps)
+### **"השידור קופא / מתקיע"**
+**פתרון:**
+- בדקו מהירות אינטרנט ([Fast.com](https://fast.com) – לפחות 10 Mbps)
 - אתם מפעילים יותר מדי מכשירים בו זמנית? כל מנוי = מכשיר אחד
 - נסו ערוץ אחר
 
-### ❌ **"הנוכל קורס"**
-✅ **פתרון:**
+### **"הנגן קורס"**
+**פתרון:**
 - אפדיט את האפליקציה
 - מחקו ונתקנו מחדש
-- נסו נוכל שונה (VLC, GSE Smart)
+- נסו נגן שונה ([VLC](https://www.videolan.org/), [GSE Smart](https://www.gsesmart.com/))
 
 ---
 
@@ -138,109 +142,101 @@ imagePrompt: "Step-by-step IPTV setup guide visual tutorial, person holding smar
 
 | צורך | נגן מומלץ | קישור | יתרונות |
 |------|-----------|-------|---------|
-| **טלוויזיה חכמה** | TiviMate | [tivimate.net](https://tivimate.net) | EPG בעברית, EPG/ממשק קל |
-| **סמארטפון** | IPTV Smarters | [iplayer.app](https://iplayer.app) | עדכונים קבועים, ממשק נקי |
-| **Firestick** | TiviMate | – | ביצועים טובים, EPG |
+| **טלוויזיה חכמה** | TiviMate | [tivimate.net](https://tivimate.net) | EPG בעברית, ממשק קל |
+| **סמארטפון** | IPTV Smarters | [iptvsmarters.com](https://www.iptvsmarters.com/) | עדכונים קבועים, ממשק נקי |
+| **Firestick** | TiviMate | [tivimate.net](https://tivimate.net) | ביצועים טובים, EPG |
 | **מחשב** | VLC Player | [videolan.org](https://www.videolan.org) | חינמי, לא צריך הרשמה |
-| **iPad** | GSE Smart | [appstore](https://appstore.com) | ממשק מותאם, פעולה חלקה |
+| **iPad** | GSE Smart | [gsesmart.com](https://www.gsesmart.com/) | ממשק מותאם, פעולה חלקה |
 
 ---
 
 ## הגדרות מתקדמות – עבור משתמשים מנוסים
 
 ### **EPG (מדריך שידורים)**
-1. בTiviMate → Settings → EPG
+1. ב-TiviMate → Settings → EPG
 2. הדביקו את קישור ה-EPG שקיבלתם
 3. עדכנו כל 24 שעות
 
 ### **Playlist M3U**
 אם אתם מעדיפים קובץ M3U:
-1. בקבלו את קישור ה-M3U מנו
-2. בתוך הנוכל → Add from URL
+1. קבלו את קישור ה-M3U מנו
+2. בתוך הנגן → Add from URL
 3. הדביקו את הקישור
 
 ### **מספר חיבורים**
-כל מנוי = **חיבור אחד בו זמנית**
+כל מנוי = **חיבור אחד בו זמנית**  
 רוצים יותר? רכשו מנוי נוסף עבור מכשיר שני.
 
 ---
 
 ## מכשירים נתמכים – כמעט הכל!
 
-✅ **ודא שתמך:**
-- 📺 Samsung Smart TV
-- 📺 LG Smart TV
-- 📺 Sony Bravia
-- 🔥 Amazon Firestick (כל דור)
-- 🎮 Nvidia Shield
-- 📱 סמארטפון אנדרואיד
-- 🍎 iPhone / iPad
-- 💻 מחשב Windows / Mac
-- 🍎 Apple TV
-- 📦 MAG Box
-- 📦 Enigma2 Box
+**מכשירים נתמכים:**
+- Samsung Smart TV
+- LG Smart TV
+- Sony Bravia
+- Amazon Firestick (כל דור)
+- Nvidia Shield
+- סמארטפון אנדרואיד
+- iPhone / iPad
+- מחשב Windows / Mac
+- Apple TV
+- MAG Box
+- Enigma2 Box
 
 **לא בטוח?** צרו קשר – נוכל להסביר אם המכשיר שלכם תומך.
 
 ---
 
-## הטבות ל"ייצוא" המנוי
+## שימוש בחו"ל
 
-### **שימוש בחו"ל**
-✅ **כן, אתה יכול לצפות בכל מקום בעולם**
+**כן, אתה יכול לצפות בכל מקום בעולם**
 - כל עוד יש חיבור אינטרנט
 - אין הגבלות גיאוגרפיות
-- עבור רוצים להוציא IPTV ישראל לחו"ל – קראו [השוואה IPTV בינלאומי](/iptv-israel)
+- עבור רוצים להשוות – ראו [IPTV בינלאומי מול ישראלי](/iptv-israel)
 
 ---
 
-## טיפים והטריקים של PRO
+## טיפים מה-PRO
 
-### 🔐 **שמרו על הסיסמה בטוח**
+### **שמרו על הסיסמה בטוח**
 אל תשתפו את פרטי ההתחברות – זה עבור משתמש אחד בו זמנית!
 
-### 🔄 **עדכנו את ה-EPG בקביעות**
+### **עדכנו את ה-EPG בקביעות**
 כדי לקבל מדריך שידורים מדויק, עדכנו כל 12 שעות.
 
-### 📊 **בחרו ערוצים יפים**
-רוב הנוכלים מאפשרים ל"אהוב" ערוצים – זה יושמר.
-
-### 🎨 **שינוי זמן הפליאו**
-רוצים שדר לטלוויזיה בתוך 30 שניות? בחרו "Next" על כמה ערוצים.
+### **בחרו ערוצים מועדפים**
+רוב הנגנים מאפשרים ל"אהוב" ערוצים – זה יושמר בין ההפעלות.
 
 ---
 
 ## שאלות נפוצות (FAQ)
 
 **Q: האם אוכל להוריד סרטים?**  
-A: כמה נוכלים תומכים בהורדה, אבל זה תלוי בנוכל. השאלו את הצוות.
+A: כמה נגנים תומכים בהורדה, אבל זה תלוי בנגן. שאלו את הצוות.
 
 **Q: כמה זמן לוקח לאתחל?**  
 A: **תוך 5 דקות.** הורדה (2 דק), התקנה (1 דק), הגדרה (2 דק).
 
-**Q: מה אם הנוכל לא עובד?**  
-A: הורידו נוכל אחר. יש עשרות אפשרויות!
+**Q: מה אם הנגן לא עובד?**  
+A: הורידו נגן אחר. יש עשרות אפשרויות!
 
 **Q: האם אני צריך VPN?**  
-A: **לא.** IPTV ישראל עבודה ישירה בישראל ובחו"ל.
+A: **לא.** IPTV ישראל עובד ישירות בישראל ובחו"ל.
 
 ---
 
 ## מדריכים קשורים
 
-- **[IPTV ישראל – המדריך המלא](/iptv-israel)** – היסטוריה, תכונות, והשוואה
-- 🎮 **איך להתקין IPTV על Firestick** (בקרוב)
-- 📱 **IPTV על סמארטפון – טיפים מתקדמים** (בקרוב)
+- **[IPTV ישראל – המדריך המלא](/iptv-israel)** – היסטוריה, תכונות, והשוואה עם HOT ויס
+- **איך להתקין IPTV על Firestick** (בקרוב)
+- **IPTV על סמארטפון – טיפים מתקדמים** (בקרוב)
 
 ---
 
 ## צרו קשר עכשיו
 
 **אם יש לכם שאלות:**
-- 📱 [WhatsApp: +212 707 711 512](https://wa.me/212707711512?text=iptv.co.il%20-%20I%20need%20help%20with%20setup)
-- 🌐 [אתר רשמי](https://iptv.co.il)
-- 💬 צוות תמיכה 24/7 בעברית
-
----
-
-**מוכנים להתחיל? [קבלו ניסיון חינם של 3 שעות עכשיו →](https://wa.me/212707711512?text=iptv.co.il%20-%20i%20want%20to%20try%203%20hours%20trial)**
+- [WhatsApp: +212 707 711 512](https://wa.me/212707711512?text=iptv.co.il%20-%20I%20need%20help%20with%20setup)
+- [אתר רשמי](https://iptv.co.il)
+- צוות תמיכה 24/7 בעברית
