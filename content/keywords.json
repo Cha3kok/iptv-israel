@@ -128,6 +128,7 @@
     "iptv online"
   ],
   "published": [
-    { "index": 0, "keyword": "iptv israel", "slug": "iptv-israel", "title": "IPTV ישראל 2026 – המדריך המלא לשירות IPTV הטוב בישראל", "date": "2026-05-03" }
+    { "index": 0, "keyword": "iptv israel", "slug": "iptv-israel", "title": "IPTV ישראל 2026 – המדריך המלא לשירות IPTV הטוב בישראל", "date": "2026-05-03" },
+    { "index": 1, "keyword": "iptv ישראל חינם", "slug": "iptv-guide-beginners", "title": "מדריך IPTV למתחילים 2026 – הגדרה, בחירת נגן, וטרובלשוטינג", "date": "2026-05-03" }
   ]
 }
