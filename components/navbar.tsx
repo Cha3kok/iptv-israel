@@ -37,10 +37,20 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <h1 className="text-xl font-bold tracking-tight">
-              <span className="text-white">IPTV</span> <span className="text-green-500">ישראל</span>
-            </h1>
+          <Link href="/" className="flex items-center gap-2.5" aria-label="IPTV ישראל – דף הבית">
+            {/* TV + Play icon */}
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="36" height="36" rx="8" fill="#0B0F13"/>
+              <rect x="3.5" y="7" width="29" height="18" rx="2.5" fill="#10B981" fillOpacity="0.12"/>
+              <rect x="3.5" y="7" width="29" height="18" rx="2.5" stroke="#10B981" strokeWidth="1.6"/>
+              <path d="M14.5 11.5L24.5 16L14.5 20.5V11.5Z" fill="#10B981"/>
+              <rect x="12" y="25" width="12" height="1.6" rx="0.8" fill="#10B981" fillOpacity="0.6"/>
+              <rect x="16" y="24.5" width="4" height="2" rx="0.8" fill="#10B981" fillOpacity="0.6"/>
+            </svg>
+            <span className="text-xl font-black tracking-tight">
+              <span className="text-white">IPTV</span>
+              <span className="text-[#10B981]"> ישראל</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}
