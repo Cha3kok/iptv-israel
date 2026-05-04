@@ -5,7 +5,7 @@ excerpt: "כל מה שצריך לדעת על IPTV ישראל – מה זה, אי
 date: "2026-05-03"
 category: "מדריכים"
 author: "צוות IPTV ישראל"
-coverImage: "https://images.unsplash.com/photo-1593359677879-a4bb92f4834c?w=1200&h=630&fit=crop&auto=format"
+coverImage: "/images/posts/iptv-israel.jpg"
 coverAlt: "IPTV ישראל 2026 – צפייה בטלוויזיה חכמה בערוצים בשידור חי באיכות 4K UHD"
 ---
 
@@ -22,7 +22,7 @@ coverAlt: "IPTV ישראל 2026 – צפייה בטלוויזיה חכמה בע�
 - **טכנולוגיית אנטי-באפרינג** (אפס תקיעות)
 - **תמיכה 24/7** בעברית דרך WhatsApp
 
-![IPTV ישראל – צפייה חכמה בטלוויזיה 4K על כל מכשיר](https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1200&h=500&fit=crop&auto=format)
+![IPTV ישראל – צפייה חכמה בטלוויזיה 4K על כל מכשיר](/images/posts/iptv-inline-1.jpg)
 
 ---
 
@@ -63,7 +63,7 @@ coverAlt: "IPTV ישראל 2026 – צפייה בטלוויזיה חכמה בע�
 
 מעל 21,000 ערוצים בשפות: ערבית, צרפתית, ספרדית, רוסית, טורקית, פרסית, אנגלית, וגרמנית.
 
-![ערוצי ספורט ובידור בינלאומיים ב-IPTV ישראל – 21,000 ערוצים מ-50 מדינות](https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1200&h=500&fit=crop&auto=format)
+![ערוצי ספורט ובידור בינלאומיים ב-IPTV ישראל – 21,000 ערוצים מ-50 מדינות](/images/posts/iptv-inline-2.jpg)
 
 ---
 

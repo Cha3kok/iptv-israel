@@ -5,7 +5,7 @@ excerpt: "מדריך IPTV למתחילים מ-0 ל-100. איך בוחרים נג
 date: "2026-05-03"
 category: "מדריכים"
 author: "צוות IPTV ישראל"
-coverImage: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&h=630&fit=crop&auto=format"
+coverImage: "/images/posts/iptv-guide-beginners.jpg"
 coverAlt: "מדריך IPTV למתחילים - הגדרה קלה על כל מכשיר, סמארטפון, טלוויזיה חכמה, וטאבלט"
 ---
 
@@ -19,7 +19,7 @@ coverAlt: "מדריך IPTV למתחילים - הגדרה קלה על כל מכש
 - ✅ תתחברו לשרת
 - ✅ תצפו בערוצים!
 
-![מדריך IPTV – התקנה קלה על טלוויזיה חכמה, סמארטפון וטאבלט](https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1200&h=500&fit=crop&auto=format)
+![מדריך IPTV – התקנה קלה על טלוויזיה חכמה, סמארטפון וטאבלט](/images/posts/guide-inline-1.jpg)
 
 ---
 
@@ -106,7 +106,7 @@ coverAlt: "מדריך IPTV למתחילים - הגדרה קלה על כל מכש
 4. הכניסו את פרטי ההתחברות
 5. צפו!
 
-![הגדרת נגן TiviMate – מסך Xtream Codes על טלוויזיה חכמה](https://images.unsplash.com/photo-1461151304267-38535e780c79?w=1200&h=500&fit=crop&auto=format)
+![הגדרת נגן TiviMate – מסך Xtream Codes על טלוויזיה חכמה](/images/posts/guide-inline-2.jpg)
 
 ---
 
