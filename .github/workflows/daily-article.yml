@@ -25,11 +25,11 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install @anthropic-ai/sdk
+        run: npm install @google/generative-ai
 
       - name: Generate and save article
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/generate-article.mjs
 
       - name: Commit and push new article

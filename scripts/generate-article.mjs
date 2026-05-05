@@ -1,12 +1,12 @@
 /**
- * Daily Article Generator
+ * Daily Article Generator (Gemini)
  * - Reads next keyword from content/keywords.json
- * - Calls Claude API to write a full Hebrew SEO article
+ * - Calls Gemini API to write a full Hebrew SEO article
  * - Downloads 3 relevant images from Pexels CDN
  * - Saves article + updates keywords.json
  */
 
-import Anthropic from '@anthropic-ai/sdk'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 import fs from 'fs'
 import path from 'path'
 import https from 'https'
@@ -14,7 +14,7 @@ import http from 'http'
 import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const ROOT        = path.join(__dirname, '..')
+const ROOT          = path.join(__dirname, '..')
 const KEYWORDS_FILE = path.join(ROOT, 'content/keywords.json')
 const POSTS_DIR     = path.join(ROOT, 'content/posts')
 const IMAGES_DIR    = path.join(ROOT, 'public/images/posts')
@@ -72,23 +72,24 @@ async function downloadImage(photoId, filename, w, h) {
   await downloadFile(url, dest)
 }
 
-// ── Article generation via Claude API ─────────────────────────────────────
+// ── Article generation via Gemini API ─────────────────────────────────────
 
 async function generateArticle(keyword, idx) {
-  const client  = new Anthropic()
-  const today   = new Date().toISOString().split('T')[0]
+  const genAI  = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+  const model  = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
+  const today  = new Date().toISOString().split('T')[0]
   const { coverId, inline1Id, inline2Id } = pickImages(idx)
-  const slug    = toSlug(keyword)
+  const slug       = toSlug(keyword)
   const coverPath  = `/images/posts/auto-${idx}-cover.jpg`
   const inline1    = `/images/posts/auto-${idx}-inline1.jpg`
   const inline2    = `/images/posts/auto-${idx}-inline2.jpg`
 
-  const systemPrompt = `אתה כותב תוכן SEO מומחה לאתר IPTV ישראל (iptv.co.il).
+  const prompt = `אתה כותב תוכן SEO מומחה לאתר IPTV ישראל (iptv.co.il).
 כתוב אך ורק בעברית מקצועית ברמה גבוהה.
 הפלט חייב להיות Markdown טהור בלבד – ללא הסברים, ללא \`\`\`markdown, ללא טקסט לפני/אחרי המאמר.
-המחיר: ₪62 לחודש. ניסיון חינם: 3 שעות. WhatsApp: wa.me/212707711512`
+המחיר: ₪62 לחודש. ניסיון חינם: 3 שעות. WhatsApp: wa.me/212707711512
 
-  const userPrompt = `כתוב מאמר SEO מקצועי מלא על: "${keyword}"
+כתוב מאמר SEO מקצועי מלא על: "${keyword}"
 
 השתמש בדיוק בפורמט הבא (החלף [...] בתוכן אמיתי):
 
@@ -168,15 +169,9 @@ A: על כל מכשיר – טלוויזיה חכמה, Firestick, אנדרואי
 - **[IPTV ישראל – המדריך המלא](/iptv-israel)** – 21,000 ערוצים, השוואה מול HOT ויס, מחירים
 - **[מדריך IPTV למתחילים](/iptv-guide-beginners)** – הגדרה ראשונה, בחירת נגן, טרובלשוטינג`
 
-  console.log(`Calling Claude API for keyword: "${keyword}"...`)
-  const msg = await client.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 4096,
-    system: systemPrompt,
-    messages: [{ role: 'user', content: userPrompt }],
-  })
-
-  let content = msg.content[0].text.trim()
+  console.log(`Calling Gemini API for keyword: "${keyword}"...`)
+  const result  = await model.generateContent(prompt)
+  let content   = result.response.text().trim()
   // Strip any accidental code fences
   content = content.replace(/^```(?:markdown)?\n?/i, '').replace(/\n?```$/i, '').trim()
 
@@ -186,12 +181,11 @@ A: על כל מכשיר – טלוויזיה חכמה, Firestick, אנדרואי
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('❌ ANTHROPIC_API_KEY is not set')
+  if (!process.env.GEMINI_API_KEY) {
+    console.error('❌ GEMINI_API_KEY is not set')
     process.exit(1)
   }
 
-  // Load keywords
   const kw = JSON.parse(fs.readFileSync(KEYWORDS_FILE, 'utf-8'))
   const { nextIndex, keywords, published = [] } = kw
 
@@ -203,28 +197,23 @@ async function main() {
   const keyword = keywords[nextIndex]
   console.log(`\n🚀 Generating article [${nextIndex + 1}/${keywords.length}]: "${keyword}"`)
 
-  // Generate article content
   const { content, coverId, inline1Id, inline2Id, slug } =
     await generateArticle(keyword, nextIndex)
 
-  // Extract title from frontmatter for the published record
   const titleMatch = content.match(/^title:\s*"([^"]+)"/m)
   const title = titleMatch ? titleMatch[1] : keyword
 
-  // Download images
   fs.mkdirSync(IMAGES_DIR, { recursive: true })
   console.log('Downloading images...')
   await downloadImage(coverId,   `auto-${nextIndex}-cover.jpg`,   1200, 630)
   await downloadImage(inline1Id, `auto-${nextIndex}-inline1.jpg`, 1200, 500)
   await downloadImage(inline2Id, `auto-${nextIndex}-inline2.jpg`, 1200, 500)
 
-  // Save article file
   const filename = `${slug}.md`
   fs.mkdirSync(POSTS_DIR, { recursive: true })
   fs.writeFileSync(path.join(POSTS_DIR, filename), content, 'utf-8')
   console.log(`✅ Article saved: content/posts/${filename}`)
 
-  // Update keywords.json
   kw.nextIndex = nextIndex + 1
   kw.published = [...published, {
     index: nextIndex,
