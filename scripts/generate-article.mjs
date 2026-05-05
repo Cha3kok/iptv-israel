@@ -39,13 +39,17 @@ function pickImages(idx) {
   }
 }
 
-function toSlug(keyword) {
-  return keyword
+function toSlug(keyword, idx) {
+  // Keep only Latin letters, digits, and hyphens (strip Hebrew and special chars)
+  const latin = keyword
     .toLowerCase()
+    .replace(/[֐-׿יִ-ﭏ]/g, '') // strip Hebrew
     .replace(/\s+/g, '-')
-    .replace(/[^\w֐-׿-]/g, '')
+    .replace(/[^\w-]/g, '')
     .replace(/--+/g, '-')
+    .replace(/^-|-$/g, '')
     .trim()
+  return latin || `article-${idx}`
 }
 
 function downloadFile(url, dest) {
@@ -79,7 +83,7 @@ async function generateArticle(keyword, idx) {
   const model  = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
   const today  = new Date().toISOString().split('T')[0]
   const { coverId, inline1Id, inline2Id } = pickImages(idx)
-  const slug       = toSlug(keyword)
+  const slug       = toSlug(keyword, idx)
   const coverPath  = `/images/posts/auto-${idx}-cover.jpg`
   const inline1    = `/images/posts/auto-${idx}-inline1.jpg`
   const inline2    = `/images/posts/auto-${idx}-inline2.jpg`
