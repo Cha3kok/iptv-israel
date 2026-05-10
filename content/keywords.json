@@ -1,5 +1,5 @@
 ﻿{
-    "nextIndex":  6,
+    "nextIndex":  7,
     "keywords":  [
                      "iptv israel",
                      "iptv ×™×©×¨××œ ×—×™× ×",
@@ -169,6 +169,13 @@
                           "date":  "2026-05-08",
                           "slug":  "israel-iptv",
                           "index":  5
+                      },
+                      {
+                          "keyword":  "pal iptv",
+                          "title":  "PAL IPTV 2026 – המדריך המלא לשירות, קודים, ערוצים ואלטרנטיבות",
+                          "date":  "2026-05-11",
+                          "slug":  "pal-iptv",
+                          "index":  6
                       }
                   ]
 }
