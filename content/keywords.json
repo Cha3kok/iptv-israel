@@ -1,5 +1,5 @@
 ﻿{
-    "nextIndex":  7,
+    "nextIndex":  8,
     "keywords":  [
                      "iptv israel",
                      "iptv ×™×©×¨××œ ×—×™× ×",
@@ -176,6 +176,13 @@
                           "date":  "2026-05-11",
                           "slug":  "pal-iptv",
                           "index":  6
+                      },
+                      {
+                          "keyword":  "iptv smart tv israel",
+                          "title":  "IPTV על Smart TV ישראל 2026 – המדריך המלא להגדרה ב-5 דקות",
+                          "date":  "2026-05-17",
+                          "slug":  "iptv-smart-tv-israel",
+                          "index":  7
                       }
                   ]
 }
